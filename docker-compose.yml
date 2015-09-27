@@ -1,0 +1,11 @@
+keygen:
+  build: .
+  volumes:
+    - assets/etc/openvpn:/etc/openvpn
+  command: --genkey --secret /etc/openvpn/static.key 
+vpn:
+  build: .
+  volumes:
+    - assets/etc/openvpn:/etc/openvpn
+  working_dir: /etc/openvpn
+  command: --config /etc/openvpn/openvpn.conf
